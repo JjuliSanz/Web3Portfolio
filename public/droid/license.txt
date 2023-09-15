@@ -1,0 +1,11 @@
+Model Information:
+* title:	SWBF2 - Viper Droid
+* source:	https://sketchfab.com/3d-models/swbf2-viper-droid-d2de16581b574e2584ef75d87e358356
+* author:	jay2307 (https://sketchfab.com/jay2307)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "SWBF2 - Viper Droid" (https://sketchfab.com/3d-models/swbf2-viper-droid-d2de16581b574e2584ef75d87e358356) by jay2307 (https://sketchfab.com/jay2307) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
