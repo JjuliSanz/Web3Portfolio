@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import Footer from "@/app/(Footer)/Footer";
@@ -8,7 +8,7 @@ import { Project } from "../../../utils/constants";
 import Image from "next/image";
 import Dependencies from "./Dependencies";
 import { useDispatch, useSelector } from "react-redux";
-import { Image_src_data, set_Image_src } from "@/Redux-store/Redux-action";
+import { Image_src_data, setStarColor, setStarMode, set_Image_src } from "@/Redux-store/Redux-action";
 import ScaleImage from "@/app/(BodySection)/(ScaleImg)/ScaleImg";
 
 type Props = {
@@ -25,6 +25,29 @@ function page({ params: { ProjectId } }: Props) {
   // Initialize Redux-related variables
   const dispatch = useDispatch();
   const ImageSrc = useSelector(Image_src_data);
+
+  useEffect(() => {
+    // Run this effect on component mount.
+    const haveStarMode = localStorage.getItem("starMode"); // Get starMode value from local storage.
+    const color = localStorage.getItem("color"); // Get color value from local storage.
+
+    if (
+      haveStarMode === "" ||
+      haveStarMode === null ||
+      haveStarMode === undefined ||
+      color === "" ||
+      color === undefined ||
+      color === null
+    ) {
+      // If no starMode or color data found in local storage, set default values.
+      localStorage.setItem("starMode", "active"); // Set starMode to "active".
+      localStorage.setItem("color", "#4d7c0f"); // Set color to "#4d7c0f".
+    } else {
+      // If starMode and color data found in local storage, update Redux store with these values.
+      dispatch(setStarMode(haveStarMode)); // Dispatch action to set starMode in Redux store.
+      dispatch(setStarColor(color)); // Dispatch action to set color in Redux store.
+    }
+  }, []);
 
   return (
     <>
@@ -65,19 +88,6 @@ function page({ params: { ProjectId } }: Props) {
           <p className="text-gray-300 text-[15px]">
             {Single_data[0].description}
           </p>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="36"
-            height="36"
-            fill="currentColor"
-            className="bi bi-arrows-angle-expand text-white"
-            viewBox="0 0 24 24"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707zm4.344-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707z"
-            />
-          </svg>
 
           {/* Tech & feature */}
           <span className="font-bold text-slate-200 text-[23px] mt-[15px]">

@@ -46,8 +46,8 @@ function Skills() {
         ))}
       </div>
  
-      <div className="w-full h-full absolute flex flex-col justify-center items-center">
-        <div className="w-[1000px] 1000:w-full h-full z-[-10] opacity-[0.5] absolute flex flex-col bg-cover items-center justify-center ">
+      <div className="w-full h-full absolute flex">
+        <div className="w-[1000px] 1000:w-full h-full z-[-10] opacity-[0.5] absolute flex flex-col bg-cover justify-end">
           <video
             className="w-full h-auto"
             preload="false"

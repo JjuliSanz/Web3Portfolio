@@ -1,3 +1,5 @@
+"use client";
+
 import {
   StarColor_data,
   setMobileMenu,
@@ -9,6 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 import StarMode from "@/app/(Nav_components)/StarMode";
 import ChooseColor from "@/app/(Nav_components)/ChooseColor";
+import { useRouter } from "next/router";
 
 function MobileMenu() {
   const dispatch = useDispatch();
@@ -45,7 +48,7 @@ function MobileMenu() {
       {/* About Me */}
       <Link
         href={"/AboutMe"}
-        className=" w-full min-h-[50px] rounded-[10px] border hover:border-sky-500 border-[#7042f861] mt-[15px] flex flex-row  items-center font-semibold justify-center  "
+        className=" w-full min-h-[50px] rounded-[10px] border hover:border-sky-500 border-[#7042f861] mt-[15px] flex flex-row items-center font-semibold justify-center"
       >
         About Me
         <svg

@@ -1,11 +1,19 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import Footer from "../(Footer)/Footer";
 import emailjs from "emailjs-com";
-import DroidViewer from "../(Ship)/3dShip";
+import Droid from "../(Droid)/Droid";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  MobileMenu_data,
+  setStarColor,
+  setStarMode,
+} from "@/Redux-store/Redux-action";
+import MobileMenu from "../(BodySection)/(MobileMenu)/MobileMenu";
+import SoundButton from "../(SoundButton)/SoundButton";
 
 function AboutMe() {
   const [formData, setFormData] = useState({
@@ -17,6 +25,31 @@ function AboutMe() {
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const dispatch = useDispatch();
+  const mobileMenu: boolean = useSelector(MobileMenu_data);
+
+  useEffect(() => {
+    // Run this effect on component mount.
+    const haveStarMode = localStorage.getItem("starMode"); // Get starMode value from local storage.
+    const color = localStorage.getItem("color"); // Get color value from local storage.
+
+    if (
+      haveStarMode === "" ||
+      haveStarMode === null ||
+      haveStarMode === undefined ||
+      color === "" ||
+      color === undefined ||
+      color === null
+    ) {
+      // If no starMode or color data found in local storage, set default values.
+      localStorage.setItem("starMode", "active"); // Set starMode to "active".
+      localStorage.setItem("color", "#4d7c0f"); // Set color to "#4d7c0f".
+    } else {
+      // If starMode and color data found in local storage, update Redux store with these values.
+      dispatch(setStarMode(haveStarMode)); // Dispatch action to set starMode in Redux store.
+      dispatch(setStarColor(color)); // Dispatch action to set color in Redux store.
+    }
+  }, []);
 
   // Handle form submission
   const handleSubmit = (e: React.FormEvent) => {
@@ -24,7 +57,7 @@ function AboutMe() {
 
     // Configure EmailJS service and template IDs
     const serviceId = "service_71p8ggb";
-    const templateId = "service_71p8ggb";
+    const templateId = "template_u7llizl";
     const userId = "hI4UPK2oZSMPy1xWH";
 
     // Send the form data using EmailJS
@@ -67,7 +100,7 @@ function AboutMe() {
 
   return (
     <div className="pt-[65px] w-auto h-auto text-white m-auto flex flex-col items-center p-[10px]">
-      <div className="w-full 1250:w-[1210px] absolute min-h-[70px] flex flex-row items-center justify-start px-[10px] 600:px-[15px] 1250:px-0">
+      <div className="hidden 1250:w-[1210px] absolute min-h-[70px] 1250:flex flex-row items-center justify-start px-[10px] 600:px-[15px] 1250:px-0">
         <Link
           href={"/"}
           className="flex flex-row items-center justify-start text-slate-200 hover:text-sky-500 cursor-pointer"
@@ -81,7 +114,7 @@ function AboutMe() {
           Hello, I&apos;m Julian Sanz
         </div>
         {/* Personal introduction */}
-        <div className="text-gray-300 animate-slideright">
+        <div className="text-gray-300 animate-slideright text-[20px]">
           Passionate about the potential of Web3 technologies to revolutionize
           various industries, I am eager to collaborate with talented teams and
           contribute to the growth of decentralized applications and the broader
@@ -90,19 +123,18 @@ function AboutMe() {
           evolving world of blockchain and Web3 development.
         </div>
         {/* Learning experience */}
-        <div>
-          <div className="text-[20px] my-[15px] animate-slideright ">
-            <span className="">I have learned through courses such as </span>
-            <span className="text-sky-400"> Argentina Program</span> or,
-            <span className="text-purple-600">
-              {" "}
-              Web Development Full-Stack
-            </span>{" "}
-            from
-            <span className="text-orange-300"> CoderHouse </span>
-            <span className="">and on my own from </span>
-            <span className="text-emerald-400">videos or documentation</span>
-          </div>
+
+        <div className="text-[20px] my-[15px] animate-slideright ">
+          <span className="">I have learned through courses such as </span>
+          <span className="text-sky-400"> Argentina Program</span> or,
+          <span className="text-purple-600">
+            {" "}
+            Web Development Full-Stack
+          </span>{" "}
+          from
+          <span className="text-orange-300"> CoderHouse </span>
+          <span className="">and on my own from </span>
+          <span className="text-emerald-400">videos or documentation</span>
         </div>
 
         {/* Development Experience */}
@@ -128,8 +160,8 @@ function AboutMe() {
         >
           Contact Me
         </div>
-        <div className=" flex items-center justify-center">
-          <div className="bg-transparent rounded-lg shadow-lg">
+        <div className="flex flex-col 720:flex-row justify-between gap-3">
+          <div className="bg-transparent rounded-lg shadow-lg 720:w-1/2">
             {/* Display success and error messages */}
             {successMessage && (
               <div className="bg-green-200 text-green-800 py-2 px-4 rounded mb-4">
@@ -205,10 +237,18 @@ function AboutMe() {
             </form>
           </div>
 
-          {/* <DroidViewer /> */}
+          {/* Droid */}
+          <div className="hidden 720:flex  720:w-1/2 relative">
+            <Droid />
+            <div className="absolute bottom-0 right-0">
+              <SoundButton />
+            </div>
+          </div>
         </div>
       </div>
       <Footer />
+      {/* Render MobileMenu component conditionally based on mobileMenu state. */}
+      {mobileMenu ? <MobileMenu /> : <div></div>}{" "}
     </div>
   );
 }
