@@ -4,10 +4,10 @@ function FigmaDesign() {
   return (
     <>
       <div className="w-full h-auto flex flex-col items-center justify-center 1250:flex-row p-0 1250:p-[10px] animate-slideup ">
-        <div className="w-5/6 h-auto rounded-[18px] backdrop-blur-sm overflow-hidden border bg-[#0c0728] hover:bg-[#0e082e] border-[#401f788e] p-[13px] mr-0 1250:mr-[20px] mt-[20px] 1250:mt-0">
+        <div className="w-4/6 h-auto rounded-[18px] backdrop-blur-sm overflow-hidden border bg-[#0c0728] hover:bg-[#0e082e] border-[#401f788e] p-[13px] mr-0 1250:mr-[20px] mt-[20px] 1250:mt-0">
           <div className="w-full h-[400px] overflow-hidden">
             <Image
-              src={"/Projects/bookingapp.png"}
+              src={"/Projects/Valorant.png"}
               width={1920}
               height={1080}
               alt="image"
@@ -24,18 +24,19 @@ function FigmaDesign() {
                 className="w-[20px] h-auto cursor-pointer mr-[15px] "
               />
               <div className=" text-gray-200 font-bold text-[16px] 550:text-[18px] 720:text-[22px]">
-                Apex Movie App Figma Desing
+                Valorant Agent Selection Page
               </div>
             </div>
             <a
-              href="https://www.figma.com/community/file/1256548577755791025/Apex-Movie-App"
-              className=" font-bold text-gray-200 px-[15px] py-[8px] bg-blue-500 rounded-[10px] mt-[15px] 500:mt-0 "
+              href="https://www.figma.com/file/OCt7G2CdaMmwPQQXYFdsox/Valorant?type=design&t=nDijRIn7lMOhVxIH-6"
+              className=" font-bold text-gray-200 px-[15px] py-[8px] bg-blue-500 rounded-[10px] mt-[15px] 500:mt-0"
+              target="_blank"
             >
               Open in Figma
             </a>
           </div>
         </div>
-        <div className="w-5/6 h-auto rounded-[18px] backdrop-blur-sm overflow-hidden border bg-[#0c0728] hover:bg-[#0e082e] border-[#401f788e] p-[13px] mt-[20px] 1250:mt-0">
+        {/* <div className="w-5/6 h-auto rounded-[18px] backdrop-blur-sm overflow-hidden border bg-[#0c0728] hover:bg-[#0e082e] border-[#401f788e] p-[13px] mt-[20px] 1250:mt-0">
           <div className="w-full h-[400px] overflow-hidden">
             <Image
               src={"/Projects/bookingapp.png"}
@@ -65,7 +66,7 @@ function FigmaDesign() {
               Open in Figma
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

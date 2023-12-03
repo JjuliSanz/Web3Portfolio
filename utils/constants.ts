@@ -197,6 +197,7 @@ export const Project: Project_data[] = [
       "Next",
       "MongoDB",
       "Css",
+      "Polygon Mumbai"
     ],
     description:
       "The crowdfunding web3 full-stack app is a decentralized fundraising platform that leverages blockchain technology to revolutionize the way projects and initiatives are funded. It allows individuals and organizations to create campaigns and raise funds from a global network of contributors, all while ensuring transparency, security, and immutability of transactions.",
@@ -300,6 +301,7 @@ export const Project: Project_data[] = [
       "Hardhat",
       "Ethers",
       "Css",
+      "Goerli Testnet"
     ],
     description:
       "A decentralized clone of GoDaddy is a platform built on blockchain technology that allows users to buy domain names in a decentralized manner. By decentralizing the domain registration and management process, this clone provides an alternative to traditional domain registrars, offering increased security, privacy, and ownership rights for domain owners. It empowers individuals to truly own and control their online presence, while also contributing to the overall decentralization and resilience of the internet.",
@@ -360,6 +362,7 @@ export const Project: Project_data[] = [
       "Css",
       "Javascript",
       "Ethers",
+      "Goerli Testnet"
     ],
     description:
       "The E-commerce dApp is a decentralized application (dApp) that revolutionizes the online shopping experience by leveraging blockchain technology. It provides users with a secure and transparent platform where they can buy products using cryptocurrencies. With this dApp, users can explore a wide range of products from various sellers, ensuring a diverse marketplace. Each product listing includes detailed information, images, and reviews from previous buyers, empowering users to make informed purchasing decisions.",
