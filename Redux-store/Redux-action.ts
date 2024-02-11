@@ -22,7 +22,7 @@ const initialState: actionState = {
   },
   optionChoose: "All",
   SearchQuery: "",
-  StarMode: "",
+  StarMode: "active",
   StarColor: "",
   MobileMenu: false,
 };
